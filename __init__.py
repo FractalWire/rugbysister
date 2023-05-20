@@ -6,6 +6,7 @@ from sys import exit
 from lxml.html import fromstring
 import requests
 
+
 def check_availability():
     r = requests.get(
         "https://tickets.rugbyworldcup.com/fr",
@@ -14,6 +15,7 @@ def check_availability():
 
     html = fromstring(r.content)
 
+    out = ""
     for el in html.find_class("list-ticket-content"):
         info = el.find_class("match-label")
         s = info[0].text_content()
@@ -26,9 +28,12 @@ def check_availability():
             availability.append("Resale ticket available")
 
         if availability:
-            print(f'{s}: {availability}')
-        else:
-            print('No availability')
+            out += f'{s}: {availability}\n'
+
+    if out:
+        print(out)
+    else:
+        print('No availability')
 
 
 def sigint_handler(signal_received, frame):

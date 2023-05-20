@@ -1,7 +1,9 @@
 # Installation
 
-- `git clone <this_repository_url>`
-- `pip install -r requirements.txt`
+- clone the repository: `git clone <this_repository_url>`
+- create a virtual environment: `python -m venv rugby`
+- activate the virtual environment: `source rugby/bin/activate`
+- install the dependencies: `pip install -r requirements.txt`
 
 # Usage
 

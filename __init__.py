@@ -27,6 +27,8 @@ def check_availability():
 
         if availability:
             print(f'{s}: {availability}')
+        else:
+            print('No availability')
 
 
 def sigint_handler(signal_received, frame):
